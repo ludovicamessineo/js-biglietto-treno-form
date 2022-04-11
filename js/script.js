@@ -28,28 +28,30 @@ formBtn.addEventListener("click",
 
         // Se l'utente ha meno di 18 anni sconto del 20%
         // Se l'utente ha più di 65 anni sconto del 40%
-        let resultPrice;
+        let offerText = "Nessuna offerta"
 
-        if (userAge < 18) {
+        if (userAge === "minorenne") {
             resultPrice = ticketPrice - discountUnder;
-        } else if (userAge > 65) {
+            offerText = "Offerta minorenne";
+        } else if (userAge === "over") {
             resultPrice = ticketPrice - discountOver;
-        } else {
-            resultPrice = ticketPrice;
+            offerText = "Offerta over 65;"
         }
 
         console.log(resultPrice);
 
         // Trasformare il prezzo finale con solo due decimali 
-        const priceFormatted = resultPrice .toFixed(2);
+        const priceFormatted = offerText .toFixed(2);
         console.log(priceFormatted);
-
-
 
         // Stampo nella pagina le risposte dell'utente
         const userResponse = document.querySelector(".container-result h2");
         console.log(userResponse);
-        userResponse.innerHTML = `Nome passeggero ${userName}`;
+        userResponse.innerHTML += `Nome passeggero ${userName}`;
+
+        const offerCol = document.querySelector(".offerta tbody tr :nth-child(1) span");
+        console.log(offerCol);
+        offerCol.innerHTML = offerText;
 
         const priceResponse = document.querySelector(".container-result p")
         console.log(priceResponse);

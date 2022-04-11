@@ -2,6 +2,10 @@ body {
     background-color: #b91450;
 }
 
+h1 {
+    color: white;
+}
+
 .disp-none {
     display: none;
 }
